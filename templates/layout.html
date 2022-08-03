@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<title>Project Proposal</title>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="../static/images/hcmut.png" />
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="../static/css/flex.css">
+<link rel="stylesheet" href="../static/css/color.css">
+<link rel="stylesheet" href="../static/css/layout.css">
+<link rel="stylesheet" href="../static/css/timeline.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width">
+
+<body>
+    <!-- Navigation -->
+    <header id="navigationBar" class="container-fluid-sm flex-direction-auto text-white bg-flat-black">
+        <div id="header-logo" class="header-logo">
+            <a href="index.html" title="Home page"><img src="../static/images/hcmut.png" height="48"></a>
+        </div>
+        <nav id="navigationList" class="flex-self-center padding-col-md text-center">
+            <ul>
+                <li class="navbar-ul"><a class="text-simple active" href="/" title="Home">HOME</a></li>
+                <li class="navbar-ul"><a class="text-simple text-white" href="/visualization" title="Concepts">VISUALIZATION</a></li>
+                <li class="navbar-ul"><a class="text-simple text-white" href="/database" title="Motivation">DATABASE</a></li>
+                <li class="navbar-ul"><a class="text-simple text-white" href="/model" title="Method">CONTENT POPULARITY PREDICTION</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="container-fluid-sm bg-flat-black text-white">
+        <div class="container-fluid-reserve flex-direction-auto-medium">
+            <!-- About us -->
+            <section id="aboutSection" class="flex-col-1 margin-md">
+                <div id="project" class="container-fluid-sm">
+                    <h2 id="project-title" class="margin-none">About Project Proposal</h2>
+                    <div id="project-line" class="line line-smd line-blue margin-none"></div>
+                    <div id="project-body">
+                        <p id="project-description" class="text-justify-left">
+
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="legacy" class="container-fluid-sm">
+                    <h2 id="legacy-title" class="margin-none">Reference</h2>
+                    <div id="legacy-line" class="line line-smd line-blue margin-none text-left"></div>
+                    <div id="legacy-body">
+                        <a id="legacy-detail-notice" class="text-white" href="#" title="Legal Notice">
+                            <p>Legal Notice</p>
+                        </a>
+                        <a id="legacy-detail-term" class="text-white" href="#" title="Terms & Conditions">
+                            <p>Terms & Conditions</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contactSection" class="flex-col-1 container-fluid-sm margin-md">
+                <h2 id="contactSection-title" class="margin-none">Contact Our Leader</h2>
+                <div id="contactSection-line" class="line line-smd line-blue margin-none"></div>
+                <div id="contactSection-body">
+                    <h3 id="contact-address"><i class="fa fa-home margin-bottom"></i> <span class="text-bold"> Address:</span> Thu Duc City, Ho Chi Minh city</h3>
+                    <h3 id="contact-phone"><i class="fa fa-phone margin-bottom"></i> <span class="text-bold"> Phone:</span> (+84) 0763.687.391</h3>
+                    <h3 id="contact-email"><i class="fa fa-envelope"></i> <span class="text-bold"> Email:</span> khanh.lehcmut@hcmut.edu.vn</h3>
+                </div>
+            </section>
+
+            <!-- Email -->
+            <section id="emailSection" class="flex-col-2 container-fluid-sm margin-md">
+                <h2 id="emailSection-title" class="margin-none">Send Us A Message</h2>
+                <div id="emailSection-line" class="line line-smd line-blue margin-none"></div>
+                <p id="emailSection-description">Let's get in touch. Send us a message:</p>
+
+                <div id="emailSection-body">
+                    <input id="email-name" class="input bg-transparent text-white border border-light-gray" type="text" placeholder="Name">
+                    <input id="email-address" class="input bg-transparent text-white border border-light-gray" placeholder="Email">
+                    <input id="email-subject" class="input bg-transparent text-white border border-light-gray" placeholder="Subject">
+                    <input id="email-message" class="input bg-transparent text-white border border-light-gray" placeholder="Message">
+                    <button id="button-email" class="btn btn-sm btn-rounded bg-blue text-white border-blue hover-light margin-col">
+                            <h3 class="text-bold"><i class="fa fa-send"></i> Send </h3>
+                        </button>
+                </div>
+            </section>
+        </div>
+        <p id="copyright-text" class="text-center">Copyright 2022 Team 7 - BDC. All Rights Reserved</p>
+    </footer>
+    <!-- Scroll to top button -->
+    <div id="scrollButton" class="btn-scroll text-white margin-sm padding-sm">
+        <h1 id="scrollIcon" class="text-scroll"><i class="fa fa-angle-up"></i></h1>
+    </div>
+
+
+
+    <script src="../static/js/fun.js"></script>
+</body>
+
+</html>

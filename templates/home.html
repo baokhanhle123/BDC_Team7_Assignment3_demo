@@ -1,0 +1,184 @@
+{% extends "layout.html" %} {% block content %}
+<main>
+    <!-- Header -->
+    <section id="headerSection" class="container-fluid-lg text-center text-white img-cover" style="background-image:url(../static/images/bg.jpg)">
+        <h1 id="headerSection-header" class="margin-bottom text-green"> TEAM 7 PROJECT PROPOSAL: <br> PROCESS, ANALYZE, VISUALIZE AND USER DATA MINING FROM CONTENT DELIVERY NETWORK SYSTEM </h1>
+        <h3 id="headerSection-description" class="width-half align-center-row text-justify-center">
+            In this paper, we will discuss further about the benefits of extracting and analyzing user data from CDN, our method of approaching this issue as well as a few relevant researches.
+
+        </h3>
+        <div id="headerSection-body" class="width-half align-center-all flex-direction-auto flex-main-evenly padding-md ">
+            <a id="button-more" href="#motivationSection" class="btn btn-rounded btn-lg bg-transparent bg-transparent-hover  text-white text-simple text-bold">SEE MORE</a>
+            <a id="button-try" href="./file/Assignment_1_BDC.pdf" class="btn btn-rounded btn-lg bg-red hover-light text-white border-red text-simple text-bold" download>FULL PDF</a>
+        </div>
+    </section>
+
+    <!-- Concepts -->
+    <section id="conceptsSection" class="container-fluid bg-white text-center text-black">
+        <h1 id="conceptsSection-header"> <i class="fa fa-pencil" aria-hidden="true"></i> BASIC CONCEPTS </h1>
+        <h3 id="conceptsSection-description" class="width-half align-center-row text-justify-center">
+            In order to optimize load speed, service providers have to apply many technical methods, and one of the most commonly-used solutions is setting up a geographically distributed group of servers which work together, which is usually referred to as Content
+            Delivery Network
+        </h3>
+        <h3 id="conceptsSection-description" class="width-half align-center-row text-justify-center">
+            Not only does CDN tackle with network congestion but also bring in a massive amount of data created by users through the platforms. For internet service, such information will help them to distribute the servers properly to satisfy the customers and optimize
+            the budget for this job.
+        </h3>
+
+        <img class="width-half" src="../static/images/CDN.jpg">
+        <br>
+        <div id="conceptsSection-line" class="line line-md line-blue align-center-horizontal"></div>
+
+        <div id="conceptsSection-body" class="align-center-all flex-direction-auto flex-main-center padding-md ">
+            <a id="button-more" target="_blank" href="https://en.wikipedia.org/wiki/Content_delivery_network#:~:text=A+content+delivery+network%2C+or,spatially+relative+to+end+users" class="btn btn-rounded btn-lg bg-transparent text-simple text-bold">More Information</a>
+        </div>
+    </section>
+
+    <!--Motivation-->
+    <section id="motivationSection" class="container-fluid padding-row-lg bg-flat-black text-center text-white">
+        <h1 id="motivationSection-header" class="header text-center"> <i class="fa fa-heart text-red"></i> MOTIVATION </h1>
+        <h3 id="motivationSection-description" class="width-half align-center-row text-justify-center">
+            Our goal is to understand the situation and know the reasons why CDN is extremely popular, as well as the process to make prediction for content popularity.
+        </h3>
+        <h3 id="motivationSection-description" class="width-half align-center-row text-justify-center">
+            This research includes an overview about CDN, our expected product, the approaches proposed in literature to conduct this research and an example of CDN in commercial.
+        </h3>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodSection" class="container-fluid text-center">
+        <h1> METHODOLOGY </h1>
+        <h2 id="methodSection-description">
+            Approach and implementation methods.
+        </h2>
+        <div id="methodSection-line" class="line line-md line-blue align-center-horizontal"></div>
+        <h3 id="methodSection-description" class="width-half align-center-row text-justify-center">
+            Desk research: apply synthesis methods, analytical techniques to process collected data and statistic (both Vietnamese and foreign language documents) and apply Benchmarking method to compare the analysis’s result with research results already available
+            at home and abroad.
+        </h3>
+        <h3 id="methodSection-description" class="width-half align-center-row text-justify-center">
+            Data used in the study is primary data which is obtained from reputable sources.
+        </h3>
+        <h3 id="methodSection-description" class="width-half align-center-row text-justify-center">
+            We conduct this product through these steps below:
+        </h3>
+        <img class="width-half" src="../static/images/dataPipeline.png">
+        </div>
+    </section>
+
+    <!--Plan-->
+    <section id="planSection" class="timeline container-fluid padding-row-lg bg-flat-black text-center text-white">
+        <h1 id="motivationSection-header" class="header text-center"> <i class="fa fa-heart text-red"></i> PLAN </h1>
+
+        <ul>
+            <li>
+                <div>
+                    <time>Phase 1: </time> Introduce our project, purpose. related work. methodology, plan
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>Phase 2: Data preparation </time> Data collection, data ingestion, data preparation
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>Phase 3: Data Exploration</time> Gain an insight into the dataset. Determine the research path
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>Phase 4: Data visualization</time> Visualize the dataset with graph, table and their relationship
+                </div>
+            </li>
+            <li>
+                <div>
+                    <time>Phase 5: Data prediction</time> Build a ML model for content popularity prediction
+                </div>
+            </li>
+
+        </ul>
+    </section>
+
+    <!-- About -->
+    <section id="aboutUsSection" class="container-fluid bg-white text-center text-black bg-light-gray">
+        <h1 id="aboutUsSection-header"> <i class="fa fa-users text-pink"></i> ABOUT</h1>
+        <h3 id="aboutUsSection-description"> We are Team 7 </h3>
+        <div id="aboutUsSection-line" class="line line-md line-blue align-center-horizontal"></div>
+
+        <div id="aboutUsSection-body" class="container-fluid-sm flex-main-around flex-direction-auto-medium">
+            <div class="flex-direction-auto flex-col-1">
+                <!-- First card -->
+                <div id="people-khanh" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="khanh-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="../static/images/img_avatar.png">
+                    <h3 id="khanh-name" class="text-bold">Le Bao Khanh</h3>
+                    <h3 id="khanh-role" class="margin-none">K19</span>
+                    </h3>
+                    <p id="khanh-technology" class="margin-none">Team Leader</span>
+                    </p>
+                </div>
+
+                <!-- Second card -->
+                <div id="people-sang" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="sang-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="images/img_avatar.png">
+                    <h3 id="sang-name" class="text-bold">Kha Sang</h3>
+                    <h3 id="sang-role" class="margin-none">K20</span>
+                    </h3>
+                    <p id="sang-technology" class="margin-none">Team Member</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-direction-auto flex-col-1">
+                <!--Third card -->
+                <div id="people-thao" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="thao-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="images/img_avatar2.png">
+                    <h3 id="thao-name" class="text-bold">Trần Ngọc Mai Thảo</h3>
+                    <h3 id="thao-role" class="margin-none">K20</span>
+                    </h3>
+                    <p id="thao-technology" class="margin-none">Team Member</span>
+                    </p>
+                </div>
+
+                <!-- Fourth card -->
+                <div id="people-huy" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="huy-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="images/img_avatar.png">
+                    <h3 id="huy-name" class="text-bold">Nguyễn Đình Thiên Huy</h3>
+                    <h3 id="huy-role" class="margin-none">K21</span>
+                    </h3>
+                    <p id="huy-technology" class="margin-none">Team Member</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    //On windows scroll event
+    window.onscroll = function() {
+        myFunction()
+    };
+
+    var header = document.getElementById("navigationBar");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            $("#scrollButton").fadeIn();
+            header.classList.add("navbar-sticky");
+        } else {
+            $("#scrollButton").fadeOut();
+            header.classList.remove("navbar-sticky");
+        }
+    }
+
+    //To top scrolling
+    $("#scrollButton").on('click', function(event) {
+        $('html, body').animate({
+            scrollTop: $("#headerSection").offset().top
+        }, 800);
+    });
+</script>
+{% endblock content %}

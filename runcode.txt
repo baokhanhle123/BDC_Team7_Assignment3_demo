@@ -4,14 +4,15 @@ venv\Scripts\activate
 
 *Dependencies:
 python -m pip freeze > requirements.txt
-pip install -r .\app\requirements.txt
+pip install -r requirements.txt
 
 *Deveplopment mode:
 set FLASK_DEBUG=1
 
 *Run app:
-flask --app app\app.py run
+flask run
 
-*Git:
-git init
-git add .gitignore runcode.txt
+*Deploy:
+git add .
+git commit -m "Message"
+git push heroku master
