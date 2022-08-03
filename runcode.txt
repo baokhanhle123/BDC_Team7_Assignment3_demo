@@ -1,0 +1,17 @@
+*Virtual environment:
+py -3 -m venv venv
+venv\Scripts\activate
+
+*Dependencies:
+python -m pip freeze > requirements.txt
+pip install -r .\app\requirements.txt
+
+*Deveplopment mode:
+set FLASK_DEBUG=1
+
+*Run app:
+flask --app app\app.py run
+
+*Git:
+git init
+git add .gitignore runcode.txt
