@@ -18,10 +18,13 @@ def visualization():
 def database():
     return render_template('database.html')
 
-
 @app.route("/model")
 def model():
     return render_template('model.html')
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
 
 
 if  __name__ == '__main__':
