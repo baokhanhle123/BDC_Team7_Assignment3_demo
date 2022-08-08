@@ -1,3 +1,84 @@
 {% extends "layout.html" %} {% block content %}
-<h1>Database Page</h1>
+<main>
+  <!-- Headings -->
+  <link
+    href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    rel="stylesheet"
+  />
+  <section
+    id="headingSection"
+    class="container-fluid bg-white text-center text-black"
+  >
+    <h1 id="headingSection-header">
+      <i class="fa fa-area-chart" aria-hidden="true"></i> DATABASE PLAYGROUND
+    </h1>
+    <h3
+      id="headingSection-description"
+      class="width-half align-center-row text-justify-center header text-center"
+    >
+      This section allows users to filter or sort out relevant records from the
+      dataset based on given constraints.
+    </h3>
+    <h4
+      id="headingSection-description"
+      class="width-half align-center-row text-justify-center header text-center"
+    >
+      Due to DOM rendering limitations, only 1500 records have been shown.
+    </h4>
+    <div id="table"></div>
+  </section>
+
+  {% block scripts %}
+  <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+  <script>
+    new gridjs.Grid({
+      columns: [
+        { id: 'id', name: 'ID' },
+        { id: 'delay', name: 'Delay' },
+        { id: 'ip_address', name: 'IP Address', sort: false },
+        { id: 'hit_status', name: 'Hit Status', sort: false },
+        //{ id: 'content_name', name: 'Description', sort: false },
+        { id: 'file_size', name: 'File Size' },
+        { id: 'latitude', name: 'Lat' },
+        { id: 'longitude', name: 'Lon' },
+        { id: 'ISP', name: 'ISP'},
+        { id: 'region', name: 'Region' },
+        { id: 'country', name: 'Country' },
+        { id: 'file_type', name: 'MIME Type' },
+        { id: 'req_date', name: 'Date' },
+        { id: 'req_time', name: 'Time' },
+      ],
+      data: [
+        {% for user in users %}
+          {
+            id: {{ user.id }},
+            delay: {{ user.delay }},
+            ip_address: '{{ user.ip_address }}',
+            hit_status: '{{ user.hit_status }}',
+            //content_name: '{{ user.content_name }}',
+            file_size: '{{ user.file_size }}',
+            latitude: {{ user.latitude }},
+            longitude: {{ user.longitude }},
+            ISP: '{{ user.ISP }}',
+            region: '{{ user.region }}',
+            country: '{{ user.country }}',
+            file_type: '{{ user.file_type }}',
+            req_date: '{{ user.req_date }}',
+            req_time: '{{ user.req_time }}'
+          },
+        {% endfor %}
+      ],
+      search: {
+        selector: (cell, rowIndex, cellIndex) => [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11].includes(cellIndex) ? cell : null,
+      },
+      sort: true,
+      pagination: {
+        enabled: true,
+        limit: 20,
+        summary: true,
+      }
+    }).render(document.getElementById('table'));
+  </script>
+  {% endblock %}
+</main>
 {% endblock content %}
