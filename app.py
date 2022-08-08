@@ -26,10 +26,13 @@ def database():
         data.append(rec)
     return render_template("database.html", users=data, colnames=columns)
 
-
 @app.route("/model")
 def model():
     return render_template("model.html")
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
 
 
 if __name__ == "__main__":
