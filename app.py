@@ -1,32 +1,38 @@
 from flask import Flask, render_template, Response, send_file
 import base64
+from enum import auto
+import utils
 import pandas as pd
 from io import BytesIO
 from visualization import req_per_date, req_per_type, size_delay_relationship, percentage_province, percentage_isp
 
 app = Flask(__name__)
 df = pd.read_csv('data.csv')
-
-
+columns = utils.get_column_names()
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    return render_template("home.html")
 
 
 @app.route("/visualization")
 def visualization():
-    return render_template('visualization.html')
+    return render_template("visualization.html")
 
-    
+
 @app.route("/database")
 def database():
-    return render_template('database.html')
+    rows = utils.get_all("SELECT * FROM users LIMIT 1500")
+    data = []
+    for r in rows:
+        rec = {columns[i]: r[i] for i in range(0, len(r))}
+        data.append(rec)
+    return render_template("database.html", users=data, colnames=columns)
 
 @app.route("/model")
 def model():
-    return render_template('model.html')
+    return render_template("model.html")
 
 @app.route('/map')
 def map():
@@ -71,8 +77,6 @@ def vsl_pie2():
     fig.savefig(buf)
     buf.seek(0)
     return send_file(buf, mimetype='image/png')
-
-
 
 if  __name__ == '__main__':
     app.run(debug=True)
