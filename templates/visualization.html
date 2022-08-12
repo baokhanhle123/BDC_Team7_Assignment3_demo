@@ -1,208 +1,209 @@
 {% extends "layout.html" %} {% block content %}
 <main>
-  <!-- Headings -->
-  <section
-    id="headingSection"
-    class="container-fluid bg-white text-center text-black"
-  >
-    <h1 id="headingSection-header">
-      <i class="fa fa-area-chart" aria-hidden="true"></i> VISUALIZATION
-    </h1>
-    <h3
-      id="headingSection-description"
-      class="width-half align-center-row text-justify-center"
-    >
-      This section includes charts and maps relating to our project, which might
-      help to uncover some interesting insights about the dataset.
-    </h3>
-  </section>
+     <!-- Headings -->
+     <section id="headingSection" class="container-fluid bg-white text-center text-black">
+          <h1 id="headingSection-header"> <i class="fa fa-area-chart" aria-hidden="true"></i> VISUALIZATION </h1>
+          <h3 id="headingSection-description" class="width-half align-center-row text-justify-center">
+               This section includes charts and maps relating to our project, which might help to uncover some interesting insights about the dataset. 
+           </h3>
+     </section>
 
-  <!--Request per date-->
-  <section
-    id="requestPerDateSection"
-    class="container-fluid padding-row-lg bg-flat-black text-white"
-  >
-    <h1 id="requestPerDateSection-header" class="header text-center">
-      <i class="fa fa-bar-chart"></i> NUMBER OF REQUEST PER DATE
-    </h1>
+    <!--Request per date-->
+     <section id="requestPerDateSection" class="container-fluid padding-row-lg bg-flat-black text-white">
+        <h1 id="requestPerDateSection-header" class="header text-center"> <i class="fa fa-bar-chart"></i> NUMBER OF REQUEST PER DATE </h1>
 
-    <div class="some-page-wrapper">
-      <div class="row">
-        <div class="column">
-          <img
-            class="text-justify-center bg-white"
-            src="../static/images/request per date.png"
-          />
+        <div class="some-page-wrapper">
+            <div class="row">
+                <div class="column">
+                    <img class="text-justify-center bg-white" src="/req_per_date">
+                </div>
+                <div class="column align-center-all">
+                    <h3 id="requestPerDateSection-description" class="text-justify-left">
+                        The bar chart demonstrates the number of requests for each day, from 3rd December 2018 to 9th December 2018. 
+                    </h3>
+                    <h3 id="requestPerDateSection-description" class="text-justify-left">
+                        The figures for 3rd December was the highest, which was fourfold the number of requests of the second place, 6th December. 
+                    </h3>
+                </div>
+            </div>
         </div>
-        <div class="column align-center-all">
-          <h3 id="requestPerDateSection-description" class="text-justify-left">
-            The bar chart demonstrates the number of requests for each day, from
-            3rd December 2018 to 9th December 2018.
-          </h3>
-          <h3 id="requestPerDateSection-description" class="text-justify-left">
-            The figures for 3rd December was the highest, which was fourfold the
-            number of requests of the second place, 6th December.
-          </h3>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Request per file type -->
-  <section
-    id="requestPerFileTypeSection"
-    class="container-fluid bg-white text-center text-black"
-  >
-    <h1 id="requestPerFileTypeSection-header" class="header text-center">
-      <i class="fa fa-bar-chart"></i> NUMBER OF REQUEST PER FILE TYPE
-    </h1>
+     </section>
 
-    <div class="some-page-wrapper">
-      <div class="row">
-        <div class="column">
-          <img
-            class="text-justify-center bg-white"
-            src="../static/images/request per type.png"
-          />
+    <!-- Request per file type -->
+     <section id="requestPerFileTypeSection" class="container-fluid bg-white text-center text-black">
+        <h1 id="requestPerFileTypeSection-header" class="header text-center"> <i class="fa fa-bar-chart"></i> NUMBER OF REQUEST PER FILE TYPE </h1>
+        
+        <div class="some-page-wrapper">
+            <div class="row">
+                <div class="column">
+                    <img class="text-justify-center bg-white" src="/req_per_type">
+                </div>
+                <div class="column align-center-all">
+                    <h3 id="requestPerFileTypeSection-description" class="text-justify-left">
+                        The bar chart presents the number of requests for each file type from 3rd December 2018 to 9th December 2018. 
+                    </h3>
+                    <h3 id="requestPerFileTypeSection-description" class="text-justify-left">
+                        There were only two different types of files, ts and m3u8, with m3u8 accounted for the majority of the requests. 
+                    </h3>
+                </div>
+            </div>
         </div>
-        <div class="column align-center-all">
-          <h3
-            id="requestPerFileTypeSection-description"
-            class="text-justify-left"
-          >
-            The bar chart presents the number of requests for each file type
-            from 3rd December 2018 to 9th December 2018.
-          </h3>
-          <h3
-            id="requestPerFileTypeSection-description"
-            class="text-justify-left"
-          >
-            There were only two different types of files, ts and m3u8, with m3u8
-            accounted for the majority of the requests.
-          </h3>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!--Percentage of requests of each province -->
-  <section
-    id="percentRequestProvinceSection"
-    class="container-fluid padding-row-lg bg-flat-black text-center text-white"
-  >
-    <h1 id="percentRequestProvinceSection-header" class="header text-center">
-      <i class="fa fa-pie-chart"></i> PERCENTAGE OF REQUESTS FOR EACH PROVINCE
-    </h1>
+     </section>
 
-    <div class="some-page-wrapper">
-      <div class="row">
-        <div class="column">
-          <img
-            class="text-justify-center bg-white"
-            src="../static/images/percent - province.png"
-          />
-        </div>
-        <div class="column align-center-all">
-          <h3
-            id="percentRequestProvinceSection-description"
-            class="text-justify-left"
-          >
-            The pie chart presents the number of requests for each province
-            (both in Vietnam and overseas) from 3rd December 2018 to 9th
-            December 2018.
-          </h3>
-          <h3
-            id="percentRequestProvinceSection-description"
-            class="text-justify-left"
-          >
-            A large proportion of requests belongs to Northern provinces in
-            Vietnam with Hanoi accounted for approximately two fifths of the
-            total. Most of the overseas requests came from the United States and
-            Germany.
-          </h3>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!--Size and delay relationship-->
+    <section id="sdRelationshipSection" class="container-fluid padding-row-lg bg-flat-black text-white">
+        <h1 id="sdRelationshipSection-header" class="header text-center"> <i class="fa fa-area-chart"></i> FILE SIZE AND DELAY RELATIONSHIP </h1>
 
-  <!-- Percentage of requests for each ISP -->
-  <section
-    id="percentRequestISPSection"
-    class="container-fluid bg-white text-center text-black"
-  >
-    <h1 id="percentRequestISPSection-header" class="header text-center">
-      <i class="fa fa-pie-chart"></i> PERCENTAGE OF REQUESTS FOR EACH ISP
-    </h1>
-
-    <div class="some-page-wrapper">
-      <div class="row">
-        <div class="column">
-          <img
-            class="text-justify-center bg-white"
-            src="../static/images/percent - ISPs.png"
-          />
+        <div class="some-page-wrapper">
+            <div class="row">
+                <div class="column">
+                    <img class="text-justify-center bg-white" src="/size_delay_relationship">
+                </div>
+                <div class="column align-center-all">
+                    <h3 id="sdRelationshipSection-description" class="text-justify-left">
+                        The scatter chart demonstrates the relationship between the file size and the delay duration for requests from 3rd December 2018 to 9th December 2018.
+                    </h3>
+                    <h3 id="sdRelationshipSection-description" class="text-justify-left">
+                        In most of the requests, the files sizes are below 2 MBs and the delay duration is around 15 to 20 seconds.   
+                    </h3>
+                </div>
+            </div>
         </div>
-        <div class="column align-center-all">
-          <h3
-            id="percentRequestISPSection-description"
-            class="text-justify-left"
-          >
-            The pie chart presents the number of requests for each Internet
-            Service Provider (ISP) from 3rd December 2018 to 9th December 2018.
-          </h3>
-          <h3
-            id="percentRequestISPSection-description"
-            class="text-justify-left"
-          >
-            VNPT Corp had the highest figure with approximately fifty percents,
-            followed by FPT Telecom Company. On the contrast, Cox Communication
-            Inc. only accounted for one percent, which was the lowest one among
-            the recored ISPs.
-          </h3>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Map of IP locations -->
-  <section
-    id="IPLocationSection"
-    class="container-fluid padding-row-lg bg-flat-black text-center text-white"
-  >
-    <h1 id="IPLocationSection-header" class="header text-center">
-      <i class="fa fa-map-o"></i> MAP OF IP LOCATIONS
-    </h1>
-    <iframe class="map" , src="/map" width="1000" height="600"></iframe>
-  </section>
+    <!--Percentage of requests of each province -->
+     <section id="percentRequestProvinceSection" class="container-fluid bg-white text-center text-black">
+        <h1 id="percentRequestProvinceSection-header" class="header text-center"> <i class="fa fa-pie-chart"></i> PERCENTAGE OF REQUESTS FOR EACH PROVINCE </h1>
+        
+        <div class="some-page-wrapper">
+            <div class="row">
+                <div class="column">
+                    <img class="text-justify-center bg-white" src="/percentage_province">
+                </div>
+                <div class="column align-center-all">
+                    <h3 id="percentRequestProvinceSection-description" class="text-justify-left">
+                        The pie chart presents the number of requests for each province (both in Vietnam and overseas) from 3rd December 2018 to 9th December 2018. 
+                    </h3>
+                    <h3 id="percentRequestProvinceSection-description" class="text-justify-left">
+                        A large proportion of requests belongs to Northern provinces in Vietnam with Hanoi accounted for approximately two fifths of the total. Most of the overseas requests came from the United States and Germany.    
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+     </section>
+
+     <!-- Percentage of requests for each ISP -->
+     <section id="percentRequestISPSection" class="container-fluid padding-row-lg bg-flat-black text-white">
+          <h1 id="percentRequestISPSection-header" class="header text-center"> <i class="fa fa-pie-chart"></i> PERCENTAGE OF REQUESTS FOR EACH ISP </h1>
+          
+          <div class="some-page-wrapper">
+            <div class="row">
+                <div class="column">
+                    <img class="text-justify-center bg-white" src="/percentage_isp">
+                </div>
+                <div class="column align-center-all">
+                    <h3 id="percentRequestISPSection-description" class="text-justify-left">
+                        The pie chart presents the number of requests for each Internet Service Provider (ISP) from 3rd December 2018 to 9th December 2018. 
+                    </h3>
+                    <h3 id="percentRequestISPSection-description" class="text-justify-left">
+                        VNPT Corp had the highest figure with approximately fifty percents, followed by FPT Telecom Company. On the contrast, Cox Communication Inc. only accounted for one percent, which was the lowest one among the recored ISPs.
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+     </section>
+
+     <!-- Map of IP locations -->
+    <section id="IPLocationSection" class="container-fluid bg-white text-center text-black">
+        <h1 id="IPLocationSection-header" class="header text-center "> <i class='fa fa-map-o'></i> MAP OF IP LOCATIONS </h1>
+        <iframe class="map", src="/map" width="1000" height="600"></iframe>
+    
+
+    </section>
+
+    <!-- About -->
+    <section id="aboutUsSection" class="container-fluid bg-white text-center text-black bg-light-gray">
+        <h1 id="aboutUsSection-header"> <i class="fa fa-users text-pink"></i> ABOUT</h1>
+        <h3 id="aboutUsSection-description"> We are Team 7 </h3>
+        <div id="aboutUsSection-line" class="line line-md line-blue align-center-horizontal"></div>
+
+        <div id="aboutUsSection-body" class="container-fluid-sm flex-main-around flex-direction-auto-medium">
+            <div class="flex-direction-auto flex-col-1">
+                <!-- First card -->
+                <div id="people-khanh" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="khanh-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="../static/images/img_avatar.png">
+                    <h3 id="khanh-name" class="text-bold">Le Bao Khanh</h3>
+                    <h3 id="khanh-role" class="margin-none">K19</span>
+                    </h3>
+                    <p id="khanh-technology" class="margin-none">Team Leader</span>
+                    </p>
+                </div>
+
+                <!-- Second card -->
+                <div id="people-sang" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="sang-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="../static/images/khasang_square.jpg">
+                    <h3 id="sang-name" class="text-bold">Kha Sang</h3>
+                    <h3 id="sang-role" class="margin-none">K20</span>
+                    </h3>
+                    <p id="sang-technology" class="margin-none">Team Member</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-direction-auto flex-col-1">
+                <!--Third card -->
+                <div id="people-thao" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="thao-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="../static/images/img_avatar2.png">
+                    <h3 id="thao-name" class="text-bold">Trần Ngọc Mai Thảo</h3>
+                    <h3 id="thao-role" class="margin-none">K20</span>
+                    </h3>
+                    <p id="thao-technology" class="margin-none">Team Member</span>
+                    </p>
+                </div>
+
+                <!-- Fourth card -->
+                <div id="people-huy" class="flex-col flex-col-1 text-center margin-sm">
+                    <img id="huy-avatar" class="container-fluid-sm width-half align-center-row img-rounded" src="../static/images/img_avatar.png">
+                    <h3 id="huy-name" class="text-bold">Nguyễn Đình Thiên Huy</h3>
+                    <h3 id="huy-role" class="margin-none">K21</span>
+                    </h3>
+                    <p id="huy-technology" class="margin-none">Team Member</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <script>
-  //On windows scroll event
-  window.onscroll = function () {
-    myFunction();
-  };
+    //On windows scroll event
+    window.onscroll = function() {
+        myFunction()
+    };
 
-  var header = document.getElementById("navigationBar");
-  var sticky = header.offsetTop;
+    var header = document.getElementById("navigationBar");
+    var sticky = header.offsetTop;
 
-  function myFunction() {
-    if (window.pageYOffset > sticky) {
-      $("#scrollButton").fadeIn();
-      header.classList.add("navbar-sticky");
-    } else {
-      $("#scrollButton").fadeOut();
-      header.classList.remove("navbar-sticky");
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            $("#scrollButton").fadeIn();
+            header.classList.add("navbar-sticky");
+        } else {
+            $("#scrollButton").fadeOut();
+            header.classList.remove("navbar-sticky");
+        }
     }
-  }
 
-  //To top scrolling
-  $("#scrollButton").on("click", function (event) {
-    $("html, body").animate(
-      {
-        scrollTop: $("#headerSection").offset().top,
-      },
-      800
-    );
-  });
+    //To top scrolling
+    $("#scrollButton").on('click', function(event) {
+        $('html, body').animate({
+            scrollTop: $("#headerSection").offset().top
+        }, 800);
+    });
 </script>
 {% endblock content %}
