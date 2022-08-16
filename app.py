@@ -1,15 +1,20 @@
+from flask import Flask, render_template, Response, send_file
+import base64
 from enum import auto
+
 from ipaddress import ip_address
 from flask import Flask, render_template, request
 import utils
+import pandas as pd
 import os
+from io import BytesIO
+from visualization import req_per_date, req_per_type, size_delay_relationship, percentage_province, percentage_isp
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-
 app = Flask(__name__)
+df = pd.read_csv('data.csv')
 columns = utils.get_column_names()
-
 
 class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get(
@@ -160,6 +165,45 @@ def model():
 def map():
     return render_template("map.html")
 
+@app.route('/req_per_date')
+def vsl_bar1():
+    fig = req_per_date(df)
+    buf = BytesIO()
+    fig.savefig(buf)
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
 
-if __name__ == "__main__":
+@app.route('/req_per_type')
+def vsl_bar2():
+    fig = req_per_type(df)
+    buf = BytesIO()
+    fig.savefig(buf)
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
+
+@app.route('/size_delay_relationship')
+def vsl_scatter():
+    fig = size_delay_relationship(df)
+    buf = BytesIO()
+    fig.savefig(buf)
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
+
+@app.route('/percentage_province')
+def vsl_pie1():
+    fig = percentage_province(df)
+    buf = BytesIO()
+    fig.savefig(buf)
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
+
+@app.route('/percentage_isp')
+def vsl_pie2():
+    fig = percentage_isp(df)
+    buf = BytesIO()
+    fig.savefig(buf)
+    buf.seek(0)
+    return send_file(buf, mimetype='image/png')
+
+if  __name__ == '__main__':
     app.run(debug=True)
