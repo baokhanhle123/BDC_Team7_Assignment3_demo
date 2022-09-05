@@ -1,3 +1,15 @@
+
+
+@media (max-width: 600px) {
+    html{
+        width: 100em;
+        display: flex;
+    }
+    .width-half{
+        width: 100px;
+    }
+}
+
 /*Alignment*/
 
 .align-center {

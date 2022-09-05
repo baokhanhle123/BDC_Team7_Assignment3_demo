@@ -1,4 +1,128 @@
 {% extends "layout.html" %} {% block content %}
-<h1>Model Page</h1>
+<head>
+  <meta charset="utf-8" />
 
+  <script
+    src="https://kit.fontawesome.com/47101d2035.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 style="color: rgb(44, 44, 90); font-weight: 700">
+          <i class="fas fa-clock"></i> Delay Time
+        </h1>
+
+        <p class="padding-sm" style="color: rgb(51, 51, 83); font-weight: 700">
+          Predict delay time for a record with a specific timestamp and file
+          size.
+        </p>
+
+        <form action="model" class="padding-sm col-xs-6">
+          <div class="form-group">
+            <input
+              class="form-control"
+              placeholder="Hour (1 to 24)"
+              required
+              min="1"
+              max="24"
+              type="number"
+              name="delay-hour"
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              class="form-control"
+              placeholder="File size (MB)"
+              required
+              type="number"
+              name="delay-size"
+            />
+          </div>
+
+          <select name="delay-model" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>Choose Model</option>
+            <option value="theta-1">Model 1 - Alpha = 0.005</option>
+            <option value="theta-2">Model 2 - Alpha = 0.01</option>
+            <option value="theta-3">Model 3 - Alpha = 0.02</option>
+            <option value="theta-4">Model 4 - Alpha = 0.03</option>
+            <option value="theta-5">Model 5 - Alpha = 0.15</option>
+          </select>
+
+          <br>
+
+          <button type="submit" class="mt-4 btn btn-primary">Predict Delay Time</button>
+          
+          <hr>
+
+          {% if delay %}
+          <h3>Prediction for a {{delay[2]}}MB file at {{delay[1]}} o'clock</h3>
+          <h4>Delay Time: {{delay[0] if delay[0]>0 else 0}} seconds</h4>
+          {% endif %}
+        </form>
+      </div>
+
+      <div class="col">
+        <h1 style="color: rgb(44, 44, 90); font-weight: 700">
+          <i class="fas fa-search"></i> Content Popularity
+        </h1>
+
+        <p class="padding-sm" style="color: rgb(51, 51, 83); font-weight: 700">
+          Predict number of requests for the next 5 hours from a specific timestamp.
+        </p>
+
+        <form action="model" class="padding-sm col-xs-6">
+          <div class="form-group">
+            <input
+              class="form-control"
+              placeholder="Hour (1 to 24)"
+              required
+              min="1"
+              max="24"
+              type="number"
+              name="req-hour"
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              class="form-control"
+              placeholder="Date (YY-MM-DD)"
+              required
+              type="date"
+              name="req-date"
+            />
+          </div>
+
+          <select name="req-model" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>Choose Model</option>
+            <option value="rnn">Model 1 - RNN</option>
+            <option value="lstm">Model 2 - LSTM</option>
+            <option value="cnn">Model 3 - CNN</option>
+            <option value="arima">Model 4 - ARIMA</option>
+          </select>
+
+          <br>
+
+          <button type="submit" class="mt-4 btn btn-primary">Predict Content Popularity</button>
+
+          <hr>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  </form>
+</body>
 {% endblock content %}
