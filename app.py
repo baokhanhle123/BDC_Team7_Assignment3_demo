@@ -7,14 +7,23 @@ from flask import Flask, render_template, request
 import utils
 import pandas as pd
 import os
+import pickle
+import numpy as np
 from io import BytesIO
-from visualization import req_per_date, req_per_type, size_delay_relationship, percentage_province, percentage_isp
+from visualization import (
+    req_per_date,
+    req_per_type,
+    size_delay_relationship,
+    percentage_province,
+    percentage_isp,
+)
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-df = pd.read_csv('data.csv')
+df = pd.read_csv("data.csv")
 columns = utils.get_column_names()
+
 
 class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get(
@@ -158,52 +167,135 @@ def server_side_table_data():
 
 @app.route("/model")
 def model():
-    return render_template("model.html")
+    # Params
+    delay_model = request.args.get("delay-model")
+    delay_hour = request.args.get("delay-hour")
+    delay_size = request.args.get("delay-size")
+
+    req_model = request.args.get("req-model")
+    req_hour = request.args.get("req-hour")
+    req_date = request.args.get("req-date")
+
+    # Predictions
+    delay, req = None, None
+
+    if delay_model:
+        delay = get_predict_delay(delay_model, delay_hour, delay_size)
+        delay = [delay, delay_hour, delay_size]
+    if req_model:
+        req = get_predict_req(req_model, req_hour, req_date)
+
+    return render_template("model.html", delay=delay, popularity=req)
+
+
+def get_predict_delay(model, req_time, file_size):
+    mu = np.array([9.96573284e04, 1.36867375e01])
+    sigma = np.array([2.88700422e05, 5.69302505e00])
+    price = None
+    normalize_test_data = (np.array([int(file_size), int(req_time)]) - mu) / sigma
+    normalize_test_data = np.hstack((np.ones(1), normalize_test_data))
+    if model == "theta-1":
+        file = open("models/theta_1.pkl", "rb")
+        theta_1 = pickle.load(file)
+        price = normalize_test_data.dot(theta_1)
+    elif model == "theta-2":
+        file = open("models/theta_2.pkl", "rb")
+        theta_2 = pickle.load(file)
+        price = normalize_test_data.dot(theta_2)
+    elif model == "theta-3":
+        file = open("models/theta_3.pkl", "rb")
+        theta_3 = pickle.load(file)
+        price = normalize_test_data.dot(theta_3)
+    elif model == "theta-4":
+        file = open("models/theta_4.pkl", "rb")
+        theta_4 = pickle.load(file)
+        price = normalize_test_data.dot(theta_4)
+    elif model == "theta-5":
+        file = open("models/theta_5.pkl", "rb")
+        theta_5 = pickle.load(file)
+        price = normalize_test_data.dot(theta_5)
+    return round(price, 4)
+
+
+def get_predict_req(model, hour, date):
+    import tensorflow as tf
+
+    def model_forecast(model, series, window_size):
+        ds = tf.data.Dataset.from_tensor_slices(series)
+        ds = ds.window(window_size, shift=1, drop_remainder=True)
+        ds = ds.flat_map(lambda w: w.batch(window_size))
+        ds = ds.batch(32).prefetch(1)
+        forecast = model.predict(ds)
+        return forecast
+
+    window_size = 30
+    if model == "rnn":
+        file = open("models/rnn.pkl", "rb")
+        rnn = pickle.load(file)
+
+    elif model == "cnn":
+        file = open("models/cnn.pkl", "rb")
+        cnn = pickle.load(file)
+
+    elif model == "lstm":
+        file = open("models/lstm.pkl", "rb")
+        lstm = pickle.load(file)
+
+    elif model == "arima":
+        file = open("models/arima.pkl", "rb")
+        arima = pickle.load(file)
+    return
 
 
 @app.route("/map")
 def map():
     return render_template("map.html")
 
-@app.route('/req_per_date')
+
+@app.route("/req_per_date")
 def vsl_bar1():
     fig = req_per_date(df)
     buf = BytesIO()
     fig.savefig(buf)
     buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+    return send_file(buf, mimetype="image/png")
 
-@app.route('/req_per_type')
+
+@app.route("/req_per_type")
 def vsl_bar2():
     fig = req_per_type(df)
     buf = BytesIO()
     fig.savefig(buf)
     buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+    return send_file(buf, mimetype="image/png")
 
-@app.route('/size_delay_relationship')
+
+@app.route("/size_delay_relationship")
 def vsl_scatter():
     fig = size_delay_relationship(df)
     buf = BytesIO()
     fig.savefig(buf)
     buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+    return send_file(buf, mimetype="image/png")
 
-@app.route('/percentage_province')
+
+@app.route("/percentage_province")
 def vsl_pie1():
     fig = percentage_province(df)
     buf = BytesIO()
     fig.savefig(buf)
     buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+    return send_file(buf, mimetype="image/png")
 
-@app.route('/percentage_isp')
+
+@app.route("/percentage_isp")
 def vsl_pie2():
     fig = percentage_isp(df)
     buf = BytesIO()
     fig.savefig(buf)
     buf.seek(0)
-    return send_file(buf, mimetype='image/png')
+    return send_file(buf, mimetype="image/png")
 
-if  __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
